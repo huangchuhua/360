@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="jquery.fullPage.css">
+    <script src="jquery-1.12.4.js"></script>
+    <script src="jquery.fullPage.js"></script>
+    <link rel="stylesheet" href="360fullPage.css">
+    
+    
+</head>
+    
+<body>
+    <!-- 页面结构 -->
+<div id="box">
+    <!--每一个class为section的div都是一屏,section这个类是固定的-->
+    <div class="section one">
+        <div class="logo"></div>
+        <div class="text">
+            <img src="images/text_1.png" alt="">
+            <img src="images/text_2.png" alt="">
+            <img src="images/text_3.png" alt="">
+            <img src="images/text_4.png" alt="">
+            <img src="images/text_5.png" alt="">
+            <img src="images/text_6.png" alt="">
+            <img src="images/text_7.png" alt="">
+            <img src="images/text_8.png" alt="">
+        </div>
+        <div class="info"><img src="images/info_1.png" alt=""></div>
+    </div>
+    <div class="section two">
+        <div class="shield">
+            <img src="images/shield_1_01.png" alt="">
+            <img src="images/shield_1_02.png" alt="">
+            <img src="images/shield_1_03.png" alt="">
+            <img src="images/shield_1_04.png" alt="">
+            <img src="images/shield_1_05.png" alt="">
+            <img src="images/shield_1_06.png" alt="">
+            <img src="images/shield_1_07.png" alt="">
+            <img src="images/shield_1_08.png" alt="">
+            <img src="images/shield_1_09.png" alt="">
+        </div>
+        <div class="text">
+            <img src="images/info_2.png" alt="">
+        </div>
+    </div>
+    <div class="section three">
+        <div class="info">
+            <img src="images/info_3.png" alt="">
+        </div>
+        <div class="circle">
+            <img src="images/circle.png" alt="">
+        </div>
+        <div class="rocket">
+            <img src="images/rocket.png" alt="">
+        </div>
+    </div>
+    <div class="section four">
+        <div class="movie">
+            <div class="search"></div>
+            <div class="keywords"></div>
+            <div class="result"></div>
+        </div>
+        <div class="info">
+            <img src="images/info_4.png" alt="">
+        </div>
+    </div>
+    <div class="section five">
+        <div class="info"></div>
+        <div class="browser">
+            <!--外边框-->
+            <div class="border-top"></div>
+            <div class="border-bottom"></div>
+            <div class="border-left"></div>
+            <div class="border-right"></div>
+            <!--内容-->
+            <div class="toolbar"></div>
+            <div class="toolbarS"></div>
+            <div class="foot"></div>
+            <div class="foot-bor-top"></div>
+        </div>
+    </div>
+    <ul id="menu">
+        <li data-menuanchor="page1" class="active"><a href="#page1">page1</a></li>
+        <li data-menuanchor="page2"><a href="#page2">page2</a></li>
+        <li data-menuanchor="page3"><a href="#page3">page3</a></li>
+        <li data-menuanchor="page4"><a href="#page4">page4</a></li>
+        <li data-menuanchor="page5"><a href="#page5">page5</a></li>
+    </ul>
+</div>
+
+<script>
+    $(function(){
+        $("#box").fullpage({
+            sectionsColor:['#0DA5D6','#2AB561','#DE8910','#16BA9D','#0DA5D6'],
+            verticalCentered:false,
+            
+            afterLoad:function(anchorLink, index){
+                //给加载到每个页面分别添加对应的current属性，其他页面排他处理
+                $(".section").eq(index-1).addClass("current").siblings().removeClass("current");
+                
+            },
+            anchors:["page1","page2","page3","page4","page5"],//注意是anchors,数组
+            navigation:true,
+            menu:"#menu"//对应的导航栏类名
+        })
+    })
+
+</script>
+</body>
+</html>
